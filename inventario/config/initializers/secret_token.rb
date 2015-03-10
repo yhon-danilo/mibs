@@ -1,0 +1,1 @@
+Inventario::Application.config.secret_key_base = '79ab8f6b97b1c056c8bcb31f652ddfc7b9b83416dce20b2222cf1aa45852e3470d6084e9295845c3cb1c2fba82029e340a04232a3fc745384274b9ca494d1c22'
