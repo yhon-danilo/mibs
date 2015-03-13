@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+#  get "usuarios/new"
+ # post "usuarios/create"
+  #get "usuarios/edit"
+  #get "usuarios/update"
+  #get "usuarios/delete"
+  resources :usuarios
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
