@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :marcas
+
   get "sesiones/login"
   get "sesiones/home"
   get "sesiones/perfil"
