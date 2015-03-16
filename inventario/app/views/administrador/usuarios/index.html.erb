@@ -1,0 +1,7 @@
+<%@usuario.each do |user|%>
+Nombre: <%=user.nombre_usuario%>
+Apellido: <%=user.apellido%>
+<%=link_to "Eliminar", administrador_usuarios_path(user), :confirm=>"seguro desea eliminar el usuario", method: :delete%>
+<%=link_to "Editar", edit_administrador_usuario_path(user)%> </br>
+
+<%end%> 

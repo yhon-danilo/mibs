@@ -1,10 +1,22 @@
 Rails.application.routes.draw do
+  get "sesiones/login"
+  get "sesiones/home"
+  get "sesiones/perfil"
+  get "sesiones/ajustes"
 #  get "usuarios/new"
  # post "usuarios/create"
   #get "usuarios/edit"
   #get "usuarios/update"
   #get "usuarios/delete"
-  resources :usuarios
+  namespace :administrador do
+    resources :usuarios
+  end
+  #resources :usuarios
+  #get 'usuarios/show'
+  #get 'usuarios/edit'
+  #get 'usuarios/new'
+  #post 'usuarios/create'
+  root to: "sesiones#login"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
