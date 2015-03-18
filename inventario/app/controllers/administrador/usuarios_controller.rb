@@ -1,4 +1,6 @@
 class Administrador::UsuariosController < ApplicationController
+  #before_filter :guardar_estado, :only => [:new, :create]
+
   def new
     @usuario=Usuario.new
   end
@@ -7,11 +9,13 @@ class Administrador::UsuariosController < ApplicationController
     @usuario=Usuario.new(parametros_usuarios)
     if @usuario.save
       flash[:notice]="Se ha creado el usuario"
+      redirect_to administrador_usuario_path(@usuario)
     else
       flash[:notice]="No se creo el usuario. Revise por favor"
+      render "new"
     end
     
-      render "new"
+      
   end
 
   def edit    
@@ -21,8 +25,7 @@ class Administrador::UsuariosController < ApplicationController
   def update
     @usuario=Usuario.find(params[:id])
     if @usuario.update(parametros_usuarios)
-      @usuario.save
-      redirect_to administrador_usuarios_path, notice: "El usuario se actualizo"
+      redirect_to administrador_usuario_path(@usuario), notice: "El usuario se actualizo"
     end
   end
 

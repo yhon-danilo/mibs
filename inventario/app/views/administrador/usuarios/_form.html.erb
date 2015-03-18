@@ -1,11 +1,11 @@
 <h1>Usuarios</h1>
-<%=form_for(:usuario, :url => {:controller => 'usuarios', :action => 'create'} )			do |f|%>
+<%=form_for([:administrador, @usuario]) do |f|%>
 	Nombre de usuario <%=f.text_field :nombre_usuario%></br>
 	Contrasena<%=f.password_field :password%></br>
 	Confirmacion Contrasena<%=f.password_field :confirmacion_contrasena%></br>
 	Nombre<%=f.text_field :nombre%></br>
 	Apellido<%=f.text_field :apellido%></br>
-	Crear<%=f.submit%>
+	<%=f.submit%>
 	<%=link_to'Consulta general', administrador_usuarios_path%>
 
 	<%end%>

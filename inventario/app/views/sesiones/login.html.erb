@@ -1,6 +1,6 @@
-<%=#form_tag(sesiones_login_path) do%>
-Nombre de Usuario<%=#text_field_tag :user%>
-Contrasena<%=#password_field_tag :contra%>
-<%=#submit_tag "iniciar sesion"%>
-<%#end%>
-<%#=%>
+<%=form_tag(sesiones_login_path) do%>
+Nombre de Usuario<%=text_field_tag :user%>
+Contrasena<%=password_field_tag :contra%>
+<%=submit_tag "iniciar sesion"%>
+<%end%>
+

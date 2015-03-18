@@ -1,12 +1,18 @@
 Rails.application.routes.draw do
-  resources :marcas
-
   get "sesiones/login"
   get "sesiones/home"
   get "sesiones/perfil"
   get "sesiones/ajustes"
-#  get "usuarios/new"
- # post "usuarios/create"
+
+  get "logout" => 'sesiones#destroy', :as => 'logout' 
+  get "login" => 'sesiones#new', :as => 'login' 
+
+  
+  match "signup", to: "users#new", via: [:get]
+  match "profile", to: "sesioness#profile", via: [:get]
+  match "setting", to: "sesiones#setting", via: [:get]
+ #get "usuarios/new"
+ #post "usuarios/create"
   #get "usuarios/edit"
   #get "usuarios/update"
   #get "usuarios/delete"
@@ -18,7 +24,7 @@ Rails.application.routes.draw do
   #get 'usuarios/edit'
   #get 'usuarios/new'
   #post 'usuarios/create'
-  root to: "sesiones#login"
+  root to: "sesiones#new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
