@@ -8,13 +8,17 @@ class Usuario < ActiveRecord::Base
 	validates :apellido, presence: true
 
 	def self.authenticate(user="", contra="")
-		usuario_de_login = Usuario.find_by(nombre_usuario(user))
+		usuario_de_login = Usuario.find_by_nombre_usuario(user)
 		if usuario_de_login && usuario_de_login.match_contrasena(contra)
 			return usuario_de_login
 		else
 			return false
 		end
 
+	end
+
+	def match_contrasena(contra="")
+		contrasena == BCrypt::Engine.hash_secret(contra, salt)
 	end
 
 	def encriptar_contrasena

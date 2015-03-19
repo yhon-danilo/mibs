@@ -1,7 +1,7 @@
 <h1>Usuarios</h1>
 <%=form_for([:administrador, @usuario]) do |f|%>
 	Nombre de usuario <%=f.text_field :nombre_usuario%></br>
-	Contrasena<%=f.password_field :password%></br>
+	Contrasena<%=f.password_field :contrasena%></br>
 	Confirmacion Contrasena<%=f.password_field :confirmacion_contrasena%></br>
 	Nombre<%=f.text_field :nombre%></br>
 	Apellido<%=f.text_field :apellido%></br>

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get "sesiones/login"
-  get "sesiones/home"
-  get "sesiones/perfil"
-  get "sesiones/ajustes"
+resources :sesiones
+
 
   get "logout" => 'sesiones#destroy', :as => 'logout' 
   get "login" => 'sesiones#new', :as => 'login' 

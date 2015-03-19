@@ -9,18 +9,18 @@ class ApplicationController < ActionController::Base
   	 	 @usuario_actual = Usuario.find sesion[:user_id]
   	 	 return true
   	 else
-  		  redirect_to(:controller => 'sesiones', :action => 'login')
+  		  redirect_to sesiones_marcas_path#(:controller => 'sesiones', :action => 'new')
   		  return false	
   	 end
     end
 
     #def guardar_estado
-  	 #if sesion[:user_id]
+  	# if sesion[:user_id]
   		 
-  		#  return false
-  	 #else
-  		#  return true
-  	 #end
+  	#	  return false
+  	# else
+  	#	  return true
+  	# end
     #end
 
 end

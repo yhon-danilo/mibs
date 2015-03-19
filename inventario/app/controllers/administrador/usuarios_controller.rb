@@ -1,5 +1,5 @@
 class Administrador::UsuariosController < ApplicationController
-  #before_filter :guardar_estado, :only => [:new, :create]
+  #before_action :guardar_estado, :only => [:new, :create]
 
   def new
     @usuario=Usuario.new

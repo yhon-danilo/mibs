@@ -1,27 +1,33 @@
 class SesionesController < ApplicationController
-  before_filter :autenticar_usuario, :only => [:home, :perfil, :ajustes]
-  #before_filter :guardar_estado, :only => [:login, :intento_login]
+  before_action :autenticar_usuario, :only => [:home, :perfil, :ajustes]
+  #before_action :guardar_estado, :only => [:new, :create]
  
-  def login
+  def new
 
   end
 
-  def logout
-    sesion[:user]=nil
-    render 'login'
-  end
 
-  def intento_login
+
+  def create
   	usuario_autorizado = Usuario.authenticate(params[:user], params[:contra])
   	if usuario_autorizado
       sesion[:user_id] = usuario_autorizado.id
-  		:flash[:alert] = 'Usuario autorizado'
-      redirect_to(action: :home)
+  		flash[:alert] = 'Usuario autorizado'
+      if sesion[:user_id]= 1
+        redirect_to(administrador_usuarios_path)
+      else
+        flash[:alert]= 'usuario operativo'
+      end
   	else
-      :flash[:alert] = 'Usuario incorrecto'
-      render 'login'
+      flash[:alert] = 'Usuario incorrecto'
+      render 'new'
     end
   end	
+
+    def logout
+    sesion[:user]=nil
+    render 'new'
+  end
 
   def home
   end
