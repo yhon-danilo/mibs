@@ -1,4 +1,4 @@
-class MarcasController < ApplicationController
+class Administrador::MarcasController < ApplicationController
   before_action :set_marca, only: [:show, :edit, :update, :destroy]
 
   # GET /marcas
@@ -28,7 +28,7 @@ class MarcasController < ApplicationController
 
     respond_to do |format|
       if @marca.save
-        format.html { redirect_to @marca, notice: 'Marca was successfully created.' }
+        format.html { redirect_to [:administrador, @marca], notice: 'Marca was successfully created.' }
         format.json { render action: 'show', status: :created, location: @marca }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class MarcasController < ApplicationController
   def update
     respond_to do |format|
       if @marca.update(marca_params)
-        format.html { redirect_to @marca, notice: 'Marca was successfully updated.' }
+        format.html { redirect_to [:administrador, @marca], notice: 'Marca was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -56,7 +56,7 @@ class MarcasController < ApplicationController
   def destroy
     @marca.destroy
     respond_to do |format|
-      format.html { redirect_to marcas_url }
+      format.html { redirect_to administrador_marcas_url }
       format.json { head :no_content }
     end
   end

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :marcas
+  
 
 resources :sesiones
 
@@ -18,6 +18,9 @@ resources :sesiones
   #get "usuarios/delete"
   namespace :administrador do
     resources :usuarios
+  end
+  namespace :administrador do
+    resources :marcas
   end
   #resources :usuarios
   #get 'usuarios/show'

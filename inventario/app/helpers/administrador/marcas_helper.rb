@@ -1,0 +1,2 @@
+module Administrador::MarcasHelper
+end
