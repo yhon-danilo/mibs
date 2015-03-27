@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre articulo:</strong>
+  <%= @articulo.nombre_articulo %>
+</p>
+
+<p>
+  <strong>Cantidad articulo:</strong>
+  <%= @articulo.cantidad_articulo %>
+</p>
+
+<p>
+  <strong>Valor articulo:</strong>
+  <%= @articulo.valor_articulo %>
+</p>
+
+<p>
+  <strong>Talla articulo:</strong>
+  <%= @articulo.talla_articulo %>
+</p>
+
+<p>
+  <strong>Marca:</strong>
+  <%= @articulo.marca %>
+</p>
+
+<p>
+  <strong>Caja:</strong>
+  <%= @articulo.caja %>
+</p>
+
+<%= link_to 'Edit', edit_articulo_path(@articulo) %> |
+<%= link_to 'Back', articulos_path %>
