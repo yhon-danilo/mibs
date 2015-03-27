@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   
-
-  resources :articulos
-
-resources :sesiones
-
+  resources :sesiones
+  
+  resources :usuarios do
+    resources :marcas, :articulos
+  end
 
   get "logout" => 'sesiones#destroy', :as => 'logout' 
   get "login" => 'sesiones#new', :as => 'login' 
