@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
 
   protected
     def autenticar_usuario
-  	 if sesion[:user_id]
-  	 	 @usuario_actual = Usuario.find sesion[:user_id]
+  	 if session[:user_id]
+  	 	 @usuario_actual = Usuario.find session[:user_id]
   	 	 return true
   	 else
   		  redirect_to sesiones_marcas_path#(:controller => 'sesiones', :action => 'new')
@@ -14,13 +14,13 @@ class ApplicationController < ActionController::Base
   	 end
     end
 
-    #def guardar_estado
-  	# if sesion[:user_id]
+    def guardar_estado
+  	 if session[:user_id]
   		 
-  	#	  return false
-  	# else
-  	#	  return true
-  	# end
-    #end
+  		  return false
+  	 else
+  		  return true
+  	 end
+    end
 
 end

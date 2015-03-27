@@ -1,5 +1,5 @@
 class Administrador::UsuariosController < ApplicationController
-  #before_action :guardar_estado, :only => [:new, :create]
+  before_action :guardar_estado, :only => [:new, :create]
 
   def new
     @usuario=Usuario.new
@@ -46,6 +46,6 @@ class Administrador::UsuariosController < ApplicationController
   end
 
   def parametros_usuarios
-    params.require(:usuario).permit(:nombre_usuario, :contrasena, :nombre, :apellido)
+    params.require(:usuario).permit(:nombre_usuario, :password, :nombre, :apellido)
   end
 end

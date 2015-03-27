@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   get "logout" => 'sesiones#destroy', :as => 'logout' 
-  get "login" => 'sesiones#new', :as => 'login' 
+  get "iniciarsesion" => 'sesiones#new', :as => 'iniciarsesion' 
 
   
   match "signup", to: "users#new", via: [:get]
