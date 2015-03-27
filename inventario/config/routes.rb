@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :marcas, :articulos
   end
 
-  get "logout" => 'sesiones#destroy', :as => 'logout' 
+  get "cerrarsesion" => 'sesiones#logout', :as => 'cerrarsesion' 
   get "iniciarsesion" => 'sesiones#new', :as => 'iniciarsesion' 
 
   

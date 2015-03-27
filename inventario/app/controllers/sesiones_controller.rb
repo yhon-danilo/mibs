@@ -14,11 +14,13 @@ class SesionesController < ApplicationController
     if usuario_autorizado
       session[:user_id] = usuario_autorizado.id
   		flash[:alert] = 'Usuario autorizado'
-      if session[:user_id]= 1
+      if session[:user_id]== 1
+        
         redirect_to(administrador_usuarios_path)
       else
+        
         flash[:alert]= 'usuario operativo'
-        redirect_to(usuarios_marcas_path(sesion[:user_id]))
+        redirect_to(usuario_marcas_path(:user_id))
       end
   	else
       flash[:alert] = 'Usuario incorrecto'
