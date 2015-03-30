@@ -1,4 +1,44 @@
-<%=@usuario.nombre_usuario%>
-<%=@usuario.nombre%>
-<%=@usuario.apellido%>
-<%=link_to 'Regresar a usuarios', administrador_usuarios_path%>
+<div class="well">
+	<table class="table table-striped">
+		 <thead>
+        	<tr>
+            	<th> Usuario </th>
+            	<th> Nombres del Usuario </th>
+            	<th> Apellidos del Usuario </th>
+        	</tr>
+        </thead>
+        <tbody>
+        	<tr>
+        		<td>
+
+                	<%=@usuario.nombre_usuario%>
+
+            	</td>
+            	<td>
+
+                	<%=@usuario.nombre%>
+
+            	</td>
+            	<td>
+
+                	<%=@usuario.apellido%>
+
+            	</td>
+        	</tr>
+        </tbody>
+
+	</table>
+	
+	
+	
+	<%=link_to 'Regresar a usuarios', administrador_usuarios_path, class: 'btn btn-warning'%>
+
+</div>
+
+
+
+   
+
+    
+    
+

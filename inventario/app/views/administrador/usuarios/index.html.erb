@@ -1,9 +1,50 @@
-<%@usuario.each do |user|%>
-Nombre: <%=user.nombre_usuario%>
-Apellido: <%=user.apellido%>
-<%=link_to "Eliminar", administrador_usuario_path(user), :confirm=>"seguro desea eliminar el usuario", :method =>:delete%>
-<%=link_to "Editar", edit_administrador_usuario_path(user)%> </br>
+    <div align="right"><%= link_to "Cerrar sesion", iniciarsesion_path%></div>
 
-<%end%> 
-<%=link_to "nuevo usuario", new_administrador_usuario_path%>
-<%= link_to "Cerrar sesion", iniciarsesion_path%>
+
+    <table class="table table-striped">
+
+
+    <thead>
+        <tr>
+            <th> Nombre </th>
+            <th> Apellido </th>
+            <th> Opciones </th>
+        </tr>
+    </thead>
+    <tbody>
+    <%@usuario.each do |user|%>
+        <tr>
+            
+            <td>
+
+                <%=user.nombre_usuario%>
+
+            </td>
+            <td>
+
+                <%=user.apellido%>
+
+            </td>
+            <td>
+            	<%=link_to "Ver", administrador_usuario_path(user), class: 'btn btn-success bt-sm'%>
+            	<%=link_to "Editar", edit_administrador_usuario_path(user), class: 'btn btn-default bt-sm'%> 
+            	<%=link_to "Eliminar", administrador_usuario_path(user), class: 'btn btn-danger bt-sm',:confirm=>"seguro desea eliminar el usuario", :method =>:delete%>
+            	
+            	
+            	
+            	
+
+            </td>
+        </tr>
+        
+    </tbody>
+    <%end%>
+
+   
+    
+</table>
+
+<div>
+	<%=link_to "nuevo usuario", new_administrador_usuario_path, class: 'btn btn-warning bt-sm'%>
+</div>
+ 
