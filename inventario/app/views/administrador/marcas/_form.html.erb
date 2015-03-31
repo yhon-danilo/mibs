@@ -1,21 +1,36 @@
-<%= form_for([:administrador, @marca]) do |f| %>
-  <% if @marca.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@marca.errors.count, "error") %> prohibited this marca from being saved:</h2>
+<h1>Marcas</h1>
 
-      <ul>
-      <% @marca.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :nombre_marca %><br>
-    <%= f.text_field :nombre_marca %>
+
+<div class="well">
+  <div class="Sign_Form">
+      <%=form_for([:administrador, @marca]) do |f|%>
+        <% if @marca.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@marca.errors.count, "error") %> Imposible guardar marca:</h2>
+
+            <ul>
+              <% @marca.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <%end%>
+          
+        
+
+        <div class="form-group">
+          <label for="Nombre_marca">
+
+                  Nombre de la Marca
+
+          </label>      
+          <%=f.text_field :nombre_marca, class: 'form-control' %>
+        </div>
+            
+        <%=f.submit  "Crear o Actualizar", class: 'btn btn-default btn-primary'%>
+
+      <%end%>
+      <%=link_to'Consulta general', administrador_marcas_path, class: 'btn btn-warning'%>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

@@ -20,7 +20,7 @@ class SesionesController < ApplicationController
       else
         
         flash[:alert]= 'usuario operativo'
-        redirect_to(usuario_marcas_path(:user_id))
+        redirect_to(usuario_marcas_path(session[:user_id]))
       end
   	else
       flash[:alert] = 'Usuario incorrecto'
