@@ -4,7 +4,8 @@ class ArticulosController < ApplicationController
   # GET /articulos
   # GET /articulos.json
   def index
-    @articulos = Articulo.all
+    @marcas=Marca.all
+    @articulos = @marcas.articulos.all
   end
 
   # GET /articulos/1
@@ -14,7 +15,8 @@ class ArticulosController < ApplicationController
 
   # GET /articulos/new
   def new
-    @articulo = Articulo.new
+    @marcas=Marca.find(params[:marca_id])
+    @articulo = @marcas.articulo.new
   end
 
   # GET /articulos/1/edit
