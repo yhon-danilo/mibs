@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
-  resources :referencia_articulos
-
   resources :articulos
+
+  resources :referencia_articulos
 
   resources :sesiones
   
