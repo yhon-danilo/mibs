@@ -1,0 +1,41 @@
+<%= form_for(@referencia_articulo) do |f| %>
+  <% if @referencia_articulo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@referencia_articulo.errors.count, "error") %> prohibited this referencia_articulo from being saved:</h2>
+
+      <ul>
+      <% @referencia_articulo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nombre_referencia %><br>
+    <%= f.text_field :nombre_referencia %>
+  </div>
+  <div class="field">
+    <%= f.label :cantidad %><br>
+    <%= f.text_field :cantidad %>
+  </div>
+  <div class="field">
+    <%= f.label :valor %><br>
+    <%= f.text_field :valor %>
+  </div>
+  <div class="field">
+    <%= f.label :talla %><br>
+    <%= f.text_field :talla %>
+  </div>
+  <div class="field">
+    <%= f.label :articulo %><br>
+    <%= f.text_field :articulo %>
+  </div>
+  <div class="field">
+    <%= f.label :caja_id %><br>
+    <%= f.text_field :caja_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

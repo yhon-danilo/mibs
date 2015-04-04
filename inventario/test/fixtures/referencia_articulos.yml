@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre_referencia: 
+  cantidad: 
+  valor: 
+  talla: 
+  articulo: 
+  caja_id: 
+
+two:
+  nombre_referencia: 
+  cantidad: 
+  valor: 
+  talla: 
+  articulo: 
+  caja_id: 
