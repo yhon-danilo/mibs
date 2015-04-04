@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
   
-  resources :referencia_articulos
-
   resources :articulos
 
   resources :sesiones
