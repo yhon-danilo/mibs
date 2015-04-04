@@ -1,0 +1,55 @@
+                     Prefix Verb   URI Pattern                                                         Controller#Action
+                   sesiones GET    /sesiones(.:format)                                                 sesiones#index
+                            POST   /sesiones(.:format)                                                 sesiones#create
+                new_sesione GET    /sesiones/new(.:format)                                             sesiones#new
+               edit_sesione GET    /sesiones/:id/edit(.:format)                                        sesiones#edit
+                    sesione GET    /sesiones/:id(.:format)                                             sesiones#show
+                            PATCH  /sesiones/:id(.:format)                                             sesiones#update
+                            PUT    /sesiones/:id(.:format)                                             sesiones#update
+                            DELETE /sesiones/:id(.:format)                                             sesiones#destroy
+    usuario_marca_articulos GET    /usuarios/:usuario_id/marcas/:marca_id/articulos(.:format)          articulos#index
+                            POST   /usuarios/:usuario_id/marcas/:marca_id/articulos(.:format)          articulos#create
+ new_usuario_marca_articulo GET    /usuarios/:usuario_id/marcas/:marca_id/articulos/new(.:format)      articulos#new
+edit_usuario_marca_articulo GET    /usuarios/:usuario_id/marcas/:marca_id/articulos/:id/edit(.:format) articulos#edit
+     usuario_marca_articulo GET    /usuarios/:usuario_id/marcas/:marca_id/articulos/:id(.:format)      articulos#show
+                            PATCH  /usuarios/:usuario_id/marcas/:marca_id/articulos/:id(.:format)      articulos#update
+                            PUT    /usuarios/:usuario_id/marcas/:marca_id/articulos/:id(.:format)      articulos#update
+                            DELETE /usuarios/:usuario_id/marcas/:marca_id/articulos/:id(.:format)      articulos#destroy
+             usuario_marcas GET    /usuarios/:usuario_id/marcas(.:format)                              marcas#index
+                            POST   /usuarios/:usuario_id/marcas(.:format)                              marcas#create
+          new_usuario_marca GET    /usuarios/:usuario_id/marcas/new(.:format)                          marcas#new
+         edit_usuario_marca GET    /usuarios/:usuario_id/marcas/:id/edit(.:format)                     marcas#edit
+              usuario_marca GET    /usuarios/:usuario_id/marcas/:id(.:format)                          marcas#show
+                            PATCH  /usuarios/:usuario_id/marcas/:id(.:format)                          marcas#update
+                            PUT    /usuarios/:usuario_id/marcas/:id(.:format)                          marcas#update
+                            DELETE /usuarios/:usuario_id/marcas/:id(.:format)                          marcas#destroy
+                   usuarios GET    /usuarios(.:format)                                                 usuarios#index
+                            POST   /usuarios(.:format)                                                 usuarios#create
+                new_usuario GET    /usuarios/new(.:format)                                             usuarios#new
+               edit_usuario GET    /usuarios/:id/edit(.:format)                                        usuarios#edit
+                    usuario GET    /usuarios/:id(.:format)                                             usuarios#show
+                            PATCH  /usuarios/:id(.:format)                                             usuarios#update
+                            PUT    /usuarios/:id(.:format)                                             usuarios#update
+                            DELETE /usuarios/:id(.:format)                                             usuarios#destroy
+               cerrarsesion GET    /cerrarsesion(.:format)                                             sesiones#logout
+              iniciarsesion GET    /iniciarsesion(.:format)                                            sesiones#new
+                     signup GET    /signup(.:format)                                                   users#new
+                    profile GET    /profile(.:format)                                                  sesioness#profile
+                    setting GET    /setting(.:format)                                                  sesiones#setting
+     administrador_usuarios GET    /administrador/usuarios(.:format)                                   administrador/usuarios#index
+                            POST   /administrador/usuarios(.:format)                                   administrador/usuarios#create
+  new_administrador_usuario GET    /administrador/usuarios/new(.:format)                               administrador/usuarios#new
+ edit_administrador_usuario GET    /administrador/usuarios/:id/edit(.:format)                          administrador/usuarios#edit
+      administrador_usuario GET    /administrador/usuarios/:id(.:format)                               administrador/usuarios#show
+                            PATCH  /administrador/usuarios/:id(.:format)                               administrador/usuarios#update
+                            PUT    /administrador/usuarios/:id(.:format)                               administrador/usuarios#update
+                            DELETE /administrador/usuarios/:id(.:format)                               administrador/usuarios#destroy
+       administrador_marcas GET    /administrador/marcas(.:format)                                     administrador/marcas#index
+                            POST   /administrador/marcas(.:format)                                     administrador/marcas#create
+    new_administrador_marca GET    /administrador/marcas/new(.:format)                                 administrador/marcas#new
+   edit_administrador_marca GET    /administrador/marcas/:id/edit(.:format)                            administrador/marcas#edit
+        administrador_marca GET    /administrador/marcas/:id(.:format)                                 administrador/marcas#show
+                            PATCH  /administrador/marcas/:id(.:format)                                 administrador/marcas#update
+                            PUT    /administrador/marcas/:id(.:format)                                 administrador/marcas#update
+                            DELETE /administrador/marcas/:id(.:format)                                 administrador/marcas#destroy
+                       root GET    /                                                                   sesiones#new

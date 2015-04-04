@@ -1,59 +1,68 @@
 <div class="well">
-	<div align="center">
+	<%@marca.each do |marca|%>
+		<div align="center">
+			
+				<%if marca.nombre_marca == "Alpinestars"%>
+					<%= link_to(marca_articulos_path(marca), title: '	Alpinestars', 
+    			        rel: 'tooltip', relative: true) do %>
+  						<%= image_tag('alpinestars.jpg', width: '200', height: '150', 
+    			    	alt: 'Ver articulos de Alpinestars') %>
+					<% end %>
+					
+				<%end%>
+				
+				<%if marca.nombre_marca == "AGV"%>
+					<%= link_to(marca_articulos_path(marca), title: '	AGV', 
+    			        rel: 'tooltip', relative: true) do %>
+  						<%= image_tag('AGV.JPG', width: '250', height: '150', 
+    				    alt: 'Ver articulos de AGV') %>
+					<% end %>
+				<%end%>
+				
+				<%if marca.nombre_marca == "Dainese"%>
+					<%= link_to(marca_articulos_path(marca), title: '	Dainese', 
+    			        rel: 'tooltip', relative: true) do %>
+  						<%= image_tag('Dainese.jpg', width: '200', height: '100', 
+    			   		 alt: 'Ver articulos de Dainese') %>
+					<% end %>
+				<%end%>
 	
-	<%= link_to('administrador_marcas_path', title: 'Alpinestars', 
-            rel: 'tooltip', relative: true) do %>
-  		<%= image_tag('alpinestars.jpg', width: '200', height: '150', 
-        alt: 'Ver articulos de Alpinestars') %>
-	<% end %>
-
-	<%= link_to('administrador_marcas_path', title: 'AGV', 
-            rel: 'tooltip', relative: true) do %>
-  		<%= image_tag('AGV.JPG', width: '250', height: '150', 
-        alt: 'Ver articulos de AGV') %>
-	<% end %>
-
-	<%= link_to('administrador_marcas_path', title: 'Dainese', 
-            rel: 'tooltip', relative: true) do %>
-  		<%= image_tag('Dainese.jpg', width: '200', height: '100', 
-        alt: 'Ver articulos de Dainese') %>
-	<% end %>
-
-	</div>
-	<div align="center">
+		</div>
+		<div align="center">
+			<%if marca.nombre_marca == "Fox"%>
 	
-
-	<%= link_to('administrador_marcas_path', title: 'Fox', 
-            rel: 'tooltip', relative: true) do %>
-  		<%= image_tag('Fox.JPG', width: '200', height: '150', 
-        alt: 'Ver articulos de Fox') %>
-	<% end %>
-
-	<%= link_to('administrador_marcas_path', title: 'Icon', 
-            rel: 'tooltip', relative: true) do %>
-  		<%= image_tag('Icon.jpg', width: '200', height: '150', 
-        alt: 'Ver articulos de Icon') %>
-	<% end %>
-
-	<%= link_to('administrador_marcas_path', title: 'SpeedAndStrenght', 
-            rel: 'tooltip', relative: true) do %>
-  		<%= image_tag('speedandstrenght.jpg', width: '200', height: '150', 
-        alt: 'Ver articulos de Speed And Strenght') %>
-	<% end %>
-
-	</div>
-
-	<div align="center">
+				<%= link_to(marca_articulos_path(marca), title: 'Fox', 
+    			        	rel: 'tooltip', relative: true) do %>
+  							<%= image_tag('Fox.JPG', width: '200', height: '150', 
+    			    		alt: 'Ver articulos de Fox') %>
+				<% end %>
+			<%end%>
+			<%if marca.nombre_marca == "Icon"%>
+				<%= link_to(marca_articulos_path(marca), title: 'Icon',	 	        rel: 'tooltip', relative: true) do %>
+  					<%= image_tag('Icon.jpg', width: '200', height: '150', 
+    			  		 alt: 'Ver articulos de Icon') %>
+				<% end %>
+			<%end%>
 	
-		<%= link_to('administrador_marcas_path', title: 'Thor', 
-            rel: 'tooltip', relative: true) do %>
-  		<%= image_tag('thor.jpg', width: '200', height: '150', 
-        alt: 'Ver articulos de thor') %>
-	<% end %>
+			<%if marca.nombre_marca == "SS"%>
+				<%= link_to(marca_articulos_path(marca), title: '	SpeedAndStrenght', rel: 'tooltip', relative: true) do %>
+  						<%= image_tag('speedandstrenght.jpg', width: '200', height: '	150', 
+    			    	alt: 'Ver articulos de Speed And Strenght') %>
+    			<%end%>
+			<% end %>
 
+		</div>
 
-	</div>
-
+		<div align="center">
+			<%if marca.nombre_marca == "Thor"%>
+				<%= link_to(marca_articulos_path(marca), title: 'Thor',
+    			    	    rel: 'tooltip', relative: true) do %>
+  					<%= image_tag('thor.jpg', width: '200', height: '150', 
+    			    alt: 'Ver articulos de thor') %>
+				<% end %>
+			<%end%>
+		</div>
+	<%end%>
 </div>
 
 

@@ -4,8 +4,10 @@ class ArticulosController < ApplicationController
   # GET /articulos
   # GET /articulos.json
   def index
-    @marcas=Marca.all
-    @articulos = @marcas.articulos.all
+    @usuario_actual=session[:user_id]
+    @marca=Marca.find(params[:marca_id])
+    @articulos = @marca.articulos.all
+    
   end
 
   # GET /articulos/1
@@ -15,8 +17,9 @@ class ArticulosController < ApplicationController
 
   # GET /articulos/new
   def new
-    @marcas=Marca.find(params[:marca_id])
-    @articulo = @marcas.articulo.new
+    @usuario_actual=session[:user_id]
+    @marca=Marca.find(params[:marca_id])
+    @articulo = @marca.articulos.build
   end
 
   # GET /articulos/1/edit
@@ -26,15 +29,16 @@ class ArticulosController < ApplicationController
   # POST /articulos
   # POST /articulos.json
   def create
-    @articulo = Articulo.new(articulo_params)
+    @marca=Marca.find(params[:marca_id])
+    @articulo = @marca.articulos.build(articulo_params)
 
     respond_to do |format|
       if @articulo.save
-        format.html { redirect_to @articulo, notice: 'Articulo was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @articulo }
+        format.html { redirect_to [@marcas, @articulo], notice: 'Articulo was successfully created.' }
+        format.json { render action: 'show', status: :created, location: [@marcas, @articulo ]}
       else
         format.html { render action: 'new' }
-        format.json { render json: @articulo.errors, status: :unprocessable_entity }
+        format.json { render json: [@marcas.articulo.errors], status: :unprocessable_entity }
       end
     end
   end
@@ -42,15 +46,10 @@ class ArticulosController < ApplicationController
   # PATCH/PUT /articulos/1
   # PATCH/PUT /articulos/1.json
   def update
-    respond_to do |format|
-      if @articulo.update(articulo_params)
-        format.html { redirect_to @articulo, notice: 'Articulo was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @articulo.errors, status: :unprocessable_entity }
-      end
-    end
+    if @articulo.update
+      @articulo.save
+      redirect_to @articulo
+    end     
   end
 
   # DELETE /articulos/1

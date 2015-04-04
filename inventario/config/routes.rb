@@ -3,9 +3,12 @@ Rails.application.routes.draw do
   resources :sesiones
   
   resources :usuarios do
-    resources :marcas do
-      resources :articulos
-    end
+    resources :marcas 
+
+  end
+
+  resources :marcas do
+    resources :articulos
   end
 
   get "cerrarsesion" => 'sesiones#logout', :as => 'cerrarsesion' 
