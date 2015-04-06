@@ -1,3 +1,3 @@
 class Marca < ActiveRecord::Base
-	has_many :articulos, dependent: :destroy
+	has_many :articulos #, dependent: :destroy
 end

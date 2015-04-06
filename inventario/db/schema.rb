@@ -11,20 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150327142909) do
+ActiveRecord::Schema.define(version: 20150406173602) do
 
   create_table "articulos", force: true do |t|
     t.string   "nombre_articulo"
-    t.integer  "cantidad_articulo"
-    t.integer  "valor_articulo"
-    t.string   "talla_articulo"
     t.integer  "marca_id"
-    t.integer  "caja_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "articulos", ["caja_id"], name: "index_articulos_on_caja_id", using: :btree
   add_index "articulos", ["marca_id"], name: "index_articulos_on_marca_id", using: :btree
 
   create_table "marcas", force: true do |t|
@@ -32,6 +27,20 @@ ActiveRecord::Schema.define(version: 20150327142909) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "referencia_articulos", force: true do |t|
+    t.string   "nombre_referencia"
+    t.integer  "cantidad"
+    t.integer  "valor"
+    t.string   "talla"
+    t.integer  "articulo_id"
+    t.integer  "caja_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "referencia_articulos", ["articulo_id"], name: "index_referencia_articulos_on_articulo_id", using: :btree
+  add_index "referencia_articulos", ["caja_id"], name: "index_referencia_articulos_on_caja_id", using: :btree
 
   create_table "usuarios", force: true do |t|
     t.string   "nombre_usuario"

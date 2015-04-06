@@ -5,10 +5,7 @@
   <%= @articulo.nombre_articulo %>
 </p>
 
-<p>
-  <strong>Marca:</strong>
-  <%= @articulo.marca %>
-</p>
 
-<%= link_to 'Edit', edit_articulo_path(@articulo) %> |
-<%= link_to 'Back', articulos_path %>
+
+<%= link_to 'Edit', edit_marca_articulo_path(@marca, @articulo) %> |
+<%= link_to 'Back', marca_articulos_path %>

@@ -8,7 +8,7 @@ class MarcasController < ApplicationController
 
 	def show	
 
-		#@marca=Marca.find(params[:marca_id])
+		
 	end
 
 end

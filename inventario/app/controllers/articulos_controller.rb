@@ -4,17 +4,23 @@ class ArticulosController < ApplicationController
   # GET /articulos
   # GET /articulos.json
   def index
-    @articulos = Articulo.all
+    @marca=Marca.find(params[:marca_id])
+    @articulos = @marca.articulos.all
   end
 
   # GET /articulos/1
   # GET /articulos/1.json
   def show
+    @marca=Marca.find(params[:marca_id])
+
+    @articulo = @marca.articulos.find(params[:id])
+     
   end
 
   # GET /articulos/new
   def new
-    @articulo = Articulo.new
+    @marca=Marca.find(params[:marca_id])
+    @articulo = @marca.articulos.build
   end
 
   # GET /articulos/1/edit
@@ -24,12 +30,12 @@ class ArticulosController < ApplicationController
   # POST /articulos
   # POST /articulos.json
   def create
-    @articulo = Articulo.new(articulo_params)
-
+    @marca=Marca.find(params[:marca_id])
+    @articulo = @marca.articulos.build(articulo_params)
     respond_to do |format|
       if @articulo.save
-        format.html { redirect_to @articulo, notice: 'Articulo was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @articulo }
+        format.html { redirect_to [@marca, @articulo], notice: 'Articulo was successfully created.' }
+        format.json { render action: 'show', status: :created, location: [@marca, @articulo] }
       else
         format.html { render action: 'new' }
         format.json { render json: @articulo.errors, status: :unprocessable_entity }
@@ -41,8 +47,10 @@ class ArticulosController < ApplicationController
   # PATCH/PUT /articulos/1.json
   def update
     respond_to do |format|
+      @marca=Marca.find(params[:marca_id])
+      @articulo = @marca.articulos.find(params[:id])
       if @articulo.update(articulo_params)
-        format.html { redirect_to @articulo, notice: 'Articulo was successfully updated.' }
+        format.html { redirect_to [@marca, @articulo], notice: 'Articulo was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -54,6 +62,8 @@ class ArticulosController < ApplicationController
   # DELETE /articulos/1
   # DELETE /articulos/1.json
   def destroy
+    @marca=Marca.find(params[:marca_id])
+    @articulo = @marca.articulos.find(params[:id])
     @articulo.destroy
     respond_to do |format|
       format.html { redirect_to articulos_url }
@@ -64,11 +74,12 @@ class ArticulosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_articulo
-      @articulo = Articulo.find(params[:id])
+      @marca=Marca.find(params[:marca_id])
+      @articulos = @marca.articulos.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def articulo_params
-      params.require(:articulo).permit(:nombre_articulo, :marca_id)
+      params.require(:articulo).permit(:nombre_articulo)
     end
 end

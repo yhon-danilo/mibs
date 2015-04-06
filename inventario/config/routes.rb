@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   
-  resources :articulos
+  
 
-  resources :referencia_articulos
+  resources :articulos do
+    resources :referencia_articulos
+  end
 
   resources :sesiones
   
   resources :usuarios do
     resources :marcas 
-
   end
 
   resources :marcas do
