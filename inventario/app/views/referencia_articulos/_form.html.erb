@@ -1,4 +1,4 @@
-<%= form_for(@referencia_articulo) do |f| %>
+<%= form_for([@articulo, @referencia_articulo]) do |f| %>
   <% if @referencia_articulo.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@referencia_articulo.errors.count, "error") %> prohibited this referencia_articulo from being saved:</h2>

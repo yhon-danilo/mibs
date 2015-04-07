@@ -16,7 +16,7 @@
       <tr>
         <td><%= articulo.nombre_articulo %></td>
         
-        <td><%= link_to 'Show', marca_articulo_path(@marca, articulo) %></td>
+        <td><%= link_to 'VER REFERENCIAS DE BUSOS', articulo_referencia_articulos_path(articulo) %></td>
         <td><%= link_to 'Edit', edit_marca_articulo_path(@marca, articulo) %></td>
         <td><%= link_to 'Destroy', marca_articulo_path(@marca, articulo), :method => :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -27,4 +27,4 @@
 <br>
 
 <%= link_to 'New Articulo', new_marca_articulo_path%>
-<%= %>
+<%= link_to "Devolverse a Marcas", usuario_marcas_path(@usuario_actual)%>

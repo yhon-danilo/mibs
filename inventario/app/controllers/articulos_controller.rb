@@ -4,6 +4,7 @@ class ArticulosController < ApplicationController
   # GET /articulos
   # GET /articulos.json
   def index
+    @usuario_actual=session[:user_id]
     @marca=Marca.find(params[:marca_id])
     @articulos = @marca.articulos.all
   end

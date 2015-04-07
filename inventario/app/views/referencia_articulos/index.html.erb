@@ -24,9 +24,9 @@
         <td><%= referencia_articulo.talla %></td>
         <td><%= referencia_articulo.articulo %></td>
         <td><%= referencia_articulo.caja %></td>
-        <td><%= link_to 'Show', referencia_articulo %></td>
-        <td><%= link_to 'Edit', edit_referencia_articulo_path(referencia_articulo) %></td>
-        <td><%= link_to 'Destroy', referencia_articulo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', articulo_referencia_articulo_path(@articulo, referencia_articulo) %></td>
+        <td><%= link_to 'Edit', edit_articulo_referencia_articulo_path(referencia_articulo) %></td>
+        <td><%= link_to 'Destroy', articulo_referencia_articulo_path(@articulo, referencia_articulo), :method => :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Referencia articulo', new_referencia_articulo_path %>
+<%= link_to 'New Referencia articulo', new_articulo_referencia_articulo_path %>
