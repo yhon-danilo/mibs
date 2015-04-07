@@ -7,8 +7,7 @@
       <th>Cantidad</th>
       <th>Valor</th>
       <th>Talla</th>
-      <th>Articulo</th>
-      <th>Caja</th>
+
       <th></th>
       <th></th>
       <th></th>
@@ -22,8 +21,7 @@
         <td><%= referencia_articulo.cantidad %></td>
         <td><%= referencia_articulo.valor %></td>
         <td><%= referencia_articulo.talla %></td>
-        <td><%= referencia_articulo.articulo %></td>
-        <td><%= referencia_articulo.caja %></td>
+
         <td><%= link_to 'Show', articulo_referencia_articulo_path(@articulo, referencia_articulo) %></td>
         <td><%= link_to 'Edit', edit_articulo_referencia_articulo_path(referencia_articulo) %></td>
         <td><%= link_to 'Destroy', articulo_referencia_articulo_path(@articulo, referencia_articulo), :method => :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -34,4 +32,8 @@
 
 <br>
 
-<%= link_to 'New Referencia articulo', new_articulo_referencia_articulo_path %>
+<%= link_to 'Agregar una nueva Referencia articulo', new_articulo_referencia_articulo_path %>
+
+<%= link_to "Ir a pagina principal de Marcas", usuario_marcas_path(@usuario_actual)%>
+
+<%= link_to "Regresar a la marca #{@marca}", marca_articulos_path(@marca)%> 

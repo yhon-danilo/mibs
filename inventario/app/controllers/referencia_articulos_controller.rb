@@ -4,8 +4,12 @@ class ReferenciaArticulosController < ApplicationController
   # GET /referencia_articulos
   # GET /referencia_articulos.json
   def index
+    @usuario_actual = session[:user_id]
+
     @articulo = Articulo.find(params[:articulo_id])
     @referencia_articulos = @articulo.referencia_articulos.all
+
+    @marca= @articulo.marca_id
   end
 
   # GET /referencia_articulos/1
@@ -16,7 +20,7 @@ class ReferenciaArticulosController < ApplicationController
   # GET /referencia_articulos/new
   def new
     @articulo = Articulo.find(params[:articulo_id])
-    @referencia_articulo = @articulo.referencia_articulo.build
+    @referencia_articulo = @articulo.referencia_articulos.build
   end
 
   # GET /referencia_articulos/1/edit
