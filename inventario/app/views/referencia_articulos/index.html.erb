@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Nombre referencia</th>
-      <th>Cantidad</th>
+      <th>Color</th>
       <th>Valor</th>
       <th>Talla</th>
 
@@ -18,12 +18,12 @@
     <% @referencia_articulos.each do |referencia_articulo| %>
       <tr>
         <td><%= referencia_articulo.nombre_referencia %></td>
-        <td><%= referencia_articulo.cantidad %></td>
+        <td><%= referencia_articulo.color %></td>
         <td><%= referencia_articulo.valor %></td>
         <td><%= referencia_articulo.talla %></td>
 
         <td><%= link_to 'Show', articulo_referencia_articulo_path(@articulo, referencia_articulo) %></td>
-        <td><%= link_to 'Edit', edit_articulo_referencia_articulo_path(referencia_articulo) %></td>
+        <td><%= link_to 'Edit', edit_articulo_referencia_articulo_path(@articulo, referencia_articulo) %></td>
         <td><%= link_to 'Destroy', articulo_referencia_articulo_path(@articulo, referencia_articulo), :method => :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

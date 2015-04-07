@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150406173602) do
+ActiveRecord::Schema.define(version: 20150407163902) do
 
   create_table "articulos", force: true do |t|
     t.string   "nombre_articulo"
@@ -30,13 +30,14 @@ ActiveRecord::Schema.define(version: 20150406173602) do
 
   create_table "referencia_articulos", force: true do |t|
     t.string   "nombre_referencia"
-    t.integer  "cantidad"
     t.integer  "valor"
     t.string   "talla"
     t.integer  "articulo_id"
     t.integer  "caja_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "color"
+    t.integer  "costo_referencia"
   end
 
   add_index "referencia_articulos", ["articulo_id"], name: "index_referencia_articulos_on_articulo_id", using: :btree

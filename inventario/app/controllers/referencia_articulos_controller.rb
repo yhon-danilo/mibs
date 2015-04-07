@@ -31,7 +31,7 @@ class ReferenciaArticulosController < ApplicationController
   # POST /referencia_articulos.json
   def create
     @articulo = Articulo.find(params[:articulo_id])
-    @referencia_articulo = @articulo.referencia_articulo.build(referencia_articulo_params)
+    @referencia_articulo = @articulo.referencia_articulos.build(referencia_articulo_params)
 
     respond_to do |format|
       if @referencia_articulo.save
@@ -76,12 +76,12 @@ class ReferenciaArticulosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_referencia_articulo
-      @articulo=@articulo.find(params[:articulo_id])
+      @articulo=Articulo.find(params[:articulo_id])
       @referencia_articulo = @articulo.referencia_articulos.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def referencia_articulo_params
-      params.require(:referencia_articulo).permit(:nombre_referencia, :cantidad, :valor, :talla, :articulo_id, :caja_id)
+      params.require(:referencia_articulo).permit(:nombre_referencia, :color, :valor, :talla, :articulo_id, :caja_id)
     end
 end
