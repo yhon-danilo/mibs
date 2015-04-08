@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   
 
   resources :articulos do
-    resources :referencia_articulos
+    resources :referencia_articulos 
   end
+
 
   resources :sesiones
   
@@ -16,9 +17,11 @@ Rails.application.routes.draw do
     resources :articulos
   end
 
+  #get 'referencia_articulos/comprar_articulo' => 'referencia_articulos#comprar_articulo' 
+  #match '/comprar_articulo(/:id)' => 'referencia_articulos#comprar_articulo', via: [:get]
   get "cerrarsesion" => 'sesiones#logout', :as => 'cerrarsesion' 
   get "iniciarsesion" => 'sesiones#new', :as => 'iniciarsesion' 
-
+  #post "referencia_articulos/comprar_articulo" => "referencia_articulos#comprar_articulo"
   
   match "signup", to: "users#new", via: [:get]
   match "profile", to: "sesioness#profile", via: [:get]
@@ -51,7 +54,7 @@ Rails.application.routes.draw do
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
+  get '/referencia_articulos/:id/comprar_articulo' => 'referencia_articulos#comprar_articulo', as: :comprar_articulo
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 

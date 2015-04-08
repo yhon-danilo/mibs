@@ -21,6 +21,11 @@
 </p>
 
 
+<div align="center">
+	<%# button_to "Comprar articulo", {:controller=> 'referencia_articulo', :action => 'comprar_articulo'}, :class => "buttonGrey" %>
+	<%=button_to 'comprar articulo', comprar_articulo_path(@referencia_articulo), method: :get%>
+
+</div>
 
 
 

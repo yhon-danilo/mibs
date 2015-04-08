@@ -3,6 +3,19 @@ class ReferenciaArticulosController < ApplicationController
 
   # GET /referencia_articulos
   # GET /referencia_articulos.json
+
+  def comprar_articulo
+    
+    #@articulo=Articulo.find(params[:articulo_id])
+    @referencia_articulos=ReferenciaArticulo.find(params[:id])
+    @articulo=Articulo.find(@referencia_articulos.articulo_id)
+    @marca=@articulo.marca_id
+
+    redirect_to articulo_referencia_articulos_path(@articulo)
+
+  end
+
+
   def index
     @usuario_actual = session[:user_id]
 
@@ -82,6 +95,6 @@ class ReferenciaArticulosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def referencia_articulo_params
-      params.require(:referencia_articulo).permit(:nombre_referencia, :color, :valor, :talla, :articulo_id, :caja_id)
+      params.require(:referencia_articulo).permit(:nombre_referencia, :color, :valor, :talla, :consto_referencia, :articulo_id, :caja_id)
     end
 end
