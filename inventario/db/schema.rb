@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407163902) do
+ActiveRecord::Schema.define(version: 20150410181411) do
 
   create_table "articulos", force: true do |t|
     t.string   "nombre_articulo"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 20150407163902) do
   end
 
   add_index "articulos", ["marca_id"], name: "index_articulos_on_marca_id", using: :btree
+
+  create_table "cajas", force: true do |t|
+    t.decimal  "valor_transaccion",      precision: 10, scale: 0
+    t.decimal  "ganancia",               precision: 10, scale: 0
+    t.integer  "referencia_articulo_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cajas", ["referencia_articulo_id"], name: "index_cajas_on_referencia_articulo_id", using: :btree
 
   create_table "marcas", force: true do |t|
     t.string   "nombre_marca"

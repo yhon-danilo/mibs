@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  valor_transaccion: 9.99
+  ganancia: 9.99
+  referencia_articulo_id: 
+
+two:
+  valor_transaccion: 9.99
+  ganancia: 9.99
+  referencia_articulo_id: 

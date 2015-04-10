@@ -1,18 +1,13 @@
 class ReferenciaArticulosController < ApplicationController
-  before_action :set_referencia_articulo, only: [:show, :edit, :update, :destroy]
+  before_action :set_referencia_articulo, only: [:show, :edit, :update, :destroy, :compra_articulo]
 
   # GET /referencia_articulos
   # GET /referencia_articulos.json
 
   def comprar_articulo
-    
-    #@articulo=Articulo.find(params[:articulo_id])
-    @referencia_articulos=ReferenciaArticulo.find(params[:id])
-    @articulo=Articulo.find(@referencia_articulos.articulo_id)
-    @marca=@articulo.marca_id
+    @referencia_articulo.guardar_compra   
 
     redirect_to articulo_referencia_articulos_path(@articulo)
-
   end
 
 
