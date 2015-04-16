@@ -5,8 +5,8 @@ class ReferenciaArticulosController < ApplicationController
   # GET /referencia_articulos.json
 
   def comprar_articulo
-    @referencia_articulo.guardar_compra   
-
+    @referencia_articulo=ReferenciaArticulo.find(params[:id])
+    @referencia_articulo.guardar_compra
     redirect_to articulo_referencia_articulos_path(@articulo)
   end
 
@@ -84,12 +84,14 @@ class ReferenciaArticulosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_referencia_articulo
+      @usuario_actual= session[:user_id]
       @articulo=Articulo.find(params[:articulo_id])
       @referencia_articulo = @articulo.referencia_articulos.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def referencia_articulo_params
-      params.require(:referencia_articulo).permit(:nombre_referencia, :color, :valor, :talla, :consto_referencia, :articulo_id, :caja_id)
+      params.require(:referencia_articulo).permit(:nombre_referencia, :valor, :costo_referencia, :articulo_id,
+        tallas_attributes: [:talla_referencia], colors_attributes: [:color_referencia])
     end
 end

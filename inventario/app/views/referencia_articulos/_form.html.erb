@@ -15,18 +15,24 @@
     <%= f.label :nombre_referencia %><br>
     <%= f.text_field :nombre_referencia %>
   </div>
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.number_field :color %>
-  </div>
+
   <div class="field">
     <%= f.label :valor %><br>
     <%= f.number_field :valor %>
   </div>
-  <div class="field">
-    <%= f.label :talla %><br>
-    <%= f.text_field :talla %>
+
+  <div class="">
+    <%= f.fields_for :tallas, @referencia_articulo.tallas.empty?? @referencia_articulo.tallas.build: @referencia_articulo.tallas do |talla| %>
+      <%= talla.select :talla_referencia, options_for_select(tallas, talla.object.talla_referencia) %>
+    <% end %>
   </div>
+
+    <div class="">
+    <%= f.fields_for :colors, @referencia_articulo.colors.build do |color| %>
+      <%= color.select :color_referencia, options_for_select(colores, color.object.color_referencia) %>
+    <% end %>
+  </div>
+
 
   <div class="actions">
     <%= f.submit %>

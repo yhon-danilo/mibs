@@ -4,9 +4,9 @@
   <thead>
     <tr>
       <th>Nombre referencia</th>
-      <th>Color</th>
+     
       <th>Valor</th>
-      <th>Talla</th>
+   
 
       <th></th>
       <th></th>
@@ -18,9 +18,9 @@
     <% @referencia_articulos.each do |referencia_articulo| %>
       <tr>
         <td><%= referencia_articulo.nombre_referencia %></td>
-        <td><%= referencia_articulo.color %></td>
+       
         <td><%= referencia_articulo.valor %></td>
-        <td><%= referencia_articulo.talla %></td>
+      
 
         <td><%= link_to 'Show', articulo_referencia_articulo_path(@articulo, referencia_articulo) %></td>
         <td><%= link_to 'Edit', edit_articulo_referencia_articulo_path(@articulo, referencia_articulo) %></td>

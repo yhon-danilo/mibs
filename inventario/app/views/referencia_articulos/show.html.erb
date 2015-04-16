@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -6,28 +7,33 @@
 </p>
 
 <p>
-  <strong>Color:</strong>
-  <%= @referencia_articulo.color %>
-</p>
+
 
 <p>
   <strong>Valor:</strong>
   <%= @referencia_articulo.valor %>
 </p>
 
-<p>
-  <strong>Talla:</strong>
-  <%= @referencia_articulo.talla %>
-</p>
 
 
-<div align="center">
+<%= form_for(@referencia_articulo, url: comprar_articulo_path, method: 'get') do |f| %>
+	<div align="left">
 	<%# button_to "Comprar articulo", {:controller=> 'referencia_articulo', :action => 'comprar_articulo'}, :class => "buttonGrey" %>
-	<%=button_to 'comprar articulo', comprar_articulo_path(@referencia_articulo), method: :get%>
+			<%#f.select :tallas, options_from_collection_for_select(.all, :id , :guardar_compra, prompt: true )%>
+	  <%= f.fields_for :tallas, @referencia_articulo.tallas.empty?? @referencia_articulo.tallas.build: @referencia_articulo.tallas do |talla| %>
+      <%= talla.select :talla_referencia, options_for_select(tallas, talla.object.talla_referencia) %>
+      <%end%>
+	  <%= f.fields_for :colors, @referencia_articulo.colors.empty?? @referencia_articulo.colors.build : @referencia_articulo.colors do |color| %>
+	  <%= color.select :color_referencia, options_for_select(colores, color.object.color_referencia) %>
+<% end %>
+		
 
-</div>
+	</div>
+	<div align="center">
+		<%=button_to 'comprar articulo', comprar_articulo_path(@referencia_articulo), method: :get%>
+	</div>
 
-
+<%end%>
 
 <%= link_to 'Edit', edit_articulo_referencia_articulo_path(@articulo, @referencia_articulo) %> |
 <%= link_to 'Back', articulo_referencia_articulos_path %>
